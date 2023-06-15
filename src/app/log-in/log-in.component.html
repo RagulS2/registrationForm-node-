@@ -1,0 +1,19 @@
+<p>log-in!</p>
+<fieldset>
+    <legend>Form</legend>
+
+<form action="" #myform='ngForm' class="form-group">
+    <div>
+        <label for="name">User Name:</label>
+        <input type="text" class="form-control" name="Username" [(ngModel)]="body.username" required placeholder="Enter your Username">
+    </div>
+    <div>
+        <label for="age">password:</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="body.password" required placeholder="Enter your password">
+    </div>
+    <div>
+        <input type="button" (click)="create()" value="create">
+        <input type="button"(click)="login()" class="form-control" value="log-in">
+    </div>
+</form>
+</fieldset>

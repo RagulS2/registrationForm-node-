@@ -1,0 +1,83 @@
+<!-- <form action="" #form="ngForm" class="form-group">
+    <div>
+        <label for="Name">Name:</label>
+        <input type="text" [(ngModel)]=" body.Name" name="Name" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Position:</label>
+        <div class="radio-group">
+          <label>   
+            <input type="radio"  name="position" value="HOD" [(ngModel)]=" body.position">
+            HOD
+          </label>
+          <label>
+            <input type="radio"  name="position" value="Faculty" [(ngModel)]=" body.position">
+            Faculty
+          </label>
+          <label>
+            <input type="radio"   name="position" value="Dean" [(ngModel)]=" body.position">
+           Dean
+          </label>
+        </div>
+      </div>
+    <div>
+        <label for="salary">Salary:</label>
+        <input type="number" [(ngModel)]=" body.salary" name="salary" class="form-control">
+    </div>
+    <div class="form-control">
+        <button type="button" *ngIf="!isVisible" (click)="createUser()" >Submit</button>
+        <button type="button"  *ngIf="isVisible" (click)="updateUser()" >update</button>
+    </div>
+</form> -->
+
+<form  #form="ngForm" class="form-group">
+  <div>
+    <label for="Name">Name:</label>
+    <input type="text" [(ngModel)]="body.Name" name="Name" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Position:</label>
+    <div class="radio-group">
+      <label>
+        <input type="radio" name="position" value="HOD" [(ngModel)]="body.position" required> HOD
+      </label>
+      <label>
+        <input type="radio" name="position" value="Faculty" [(ngModel)]="body.position" required> Faculty
+      </label>
+      <label>
+        <input type="radio" name="position" value="Dean" [(ngModel)]="body.position" required> Dean
+      </label>
+    </div>  
+  </div>
+  <div>
+    <label for="salary">Salary:</label>
+    <input type="number" [(ngModel)]="body.salary" name="salary" class="form-control">
+  </div>
+  <div class="form-control">
+      
+    <button type="button"  *ngIf="!isVisible" (click)="createUser()">submit</button>
+    <button type="button" *ngIf="isVisible" (click)="updateUser()">Update</button>
+    <button type="button" (click)="resetForm()">Cancel</button>
+  </div>
+</form>
+
+<!-- {{form.value |json}} -->
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Salary</th>
+        <th>Action</th>
+
+    </tr>
+    <tbody>
+        <tr *ngFor="let e of staff">
+            <td>{{e.Name}}</td>
+            <td>{{e.position}}</td>
+            <td>{{e.salary}}</td>
+            <td><button (click)="edit(e.id)">edit</button>
+              <button (click)="deleteUser(e.id)">delete</button></td>
+        </tr>
+    </tbody>
+</table>
